@@ -4,9 +4,9 @@ import { check } from "k6";
 export const options = {
   stages: [
     { duration: "5m", target: 5000 }, // Ramp-up
-    { duration: "2m", target: 8500 },
-    { duration: "3m", target: 10000 },
-    { duration: "5s", target: 0 }, // Ramp-down
+    // { duration: "2m", target: 8500 },
+    // { duration: "3m", target: 10000 },
+    // { duration: "5s", target: 0 }, // Ramp-down
   ],
   thresholds: {
     http_req_duration: ["p(95)<500"], // 95% ของคำขอควรตอบกลับในเวลาไม่เกิน 500ms
@@ -16,15 +16,16 @@ export const options = {
   },
 };
 
-const BASE_URL = "http://150.95.80.78:9003/api/employeeNation/getEmpMasterType";
+const BASE_URL = "http://150.95.80.78:9003/api/department/filterDepartment";
 const AUTH_TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGl0eUlEIjoiZmExY2VjMjAtOTc0NC00ZWUzLWFhNmQtM2Y4MTcyZTEwYTcwIiwiZmlyc3RuYW1lIjoiS2lzc2FkYXBhIiwibGFzdG5hbWUiOiJOZ3VhbmNob24iLCJjb21wYW55SUQiOiIiLCJpYXQiOjE3Mzk5NTIwMDAsImV4cCI6MTc0MDAzODQwMH0.6wMYqju7OyP7SpMkuH4jSXwMxZdTZypZ27mMJHnN374";
 const X_TTT_PMRP = "ecffd46cf0f300f79f21afcac734ea9c";
 
 // 🔹 Payload ที่ต้องส่งไปกับคำขอ POST
 const payload = JSON.stringify({
-  oem_id: "e9549a12-9b0d-4b10-b2ef-ac3607c42ab4",
   company_id: "1a947e52-07ad-44fb-baca-aa24741512c3",
+  oem_id: "e9549a12-9b0d-4b10-b2ef-ac3607c42ab4",
+  department_name: "",
 });
 
 // 🔹 Headers ที่ใช้
