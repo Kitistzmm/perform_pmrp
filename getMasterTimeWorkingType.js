@@ -3,7 +3,7 @@ import { check } from "k6";
 
 export const options = {
   stages: [
-    { duration: "5m", target: 5000 }, // Ramp-up
+    { duration: "5m", target: 10000 }, // Ramp-up
     // { duration: "2m", target: 7500 },
     // { duration: "3m", target: 9000 },
     // { duration: "5s", target: 0 }, // Ramp-down
@@ -16,14 +16,13 @@ export const options = {
 };
 
 // ✅ Base URL ของ API
-const BASE_URL =
-  "http://150.95.80.78:9003/api/configPeriodTime/filterConfigPeriodTime";
+const BASE_URL = "http://150.95.80.78:9003/api/masterTimeWorking/getAll";
 
 // ✅ Payload (Body)
 const payload = JSON.stringify({
   company_id: "1a947e52-07ad-44fb-baca-aa24741512c3",
   oem_id: "e9549a12-9b0d-4b10-b2ef-ac3607c42ab4",
-  period_time_name: "",
+  work_name: "",
 });
 
 // ✅ Headers
