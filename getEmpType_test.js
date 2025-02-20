@@ -16,7 +16,7 @@ export const options = {
   },
 };
 
-const BASE_URL = "http://150.95.80.78:9003/api/employee/getEmployeeType";
+const BASE_URL = "http://203.154.184.162:5013/api/employee/getEmployeeType";
 const oem_id = "e9549a12-9b0d-4b10-b2ef-ac3607c42ab4";
 const company_id = "1a947e52-07ad-44fb-baca-aa24741512c3";
 const AUTH_TOKEN =
